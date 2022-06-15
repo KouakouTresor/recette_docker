@@ -15,7 +15,6 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Recette implements Serializable{
     @Serial
     private static final long serialVersionUID = -2628967119306944612L;

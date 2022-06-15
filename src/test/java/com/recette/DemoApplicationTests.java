@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -27,11 +26,11 @@ class DemoApplicationTests {
 	@Order(1)
 	@Rollback(value = false)
 	public void saveRecetteTest(){
-		Recette pizza =  Recette.builder()
-				.name("Pizza")
-				.ingredients("Farine")
-				.larecette("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout")
-				.build();
+		Recette pizza = new Recette();
+				pizza.setName("Pizza");
+				pizza.setIngredients("Farine");
+				pizza.setLarecette("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout");
+
 		recetteRepository.save(pizza);
 
 		Assertions.assertThat(pizza.getId()).isGreaterThan("0");
@@ -58,15 +57,10 @@ class DemoApplicationTests {
 	@Order(4)
 	@Rollback(value = false)
 	public void updateRecetteTest(){
-
 		Recette recette = recetteRepository.findById("1").get();
-
 		recette.setName("ratatouille");
-
 		recetteRepository.save(recette);
 		assertNotEquals("pizza", recetteRepository.findById("1").get().getName());
-
-
 
 	}
 
