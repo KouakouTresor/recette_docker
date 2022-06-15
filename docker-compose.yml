@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  mongodbDocker:
+    image: mongo
+    container_name: mongodbDocker
+    ports:
+      - "27017:27017"
+    volumes:
+      - /Volumes/EPSI/CDA/gestionFid/data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootuser
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+      MONGO_INITDB_DATABASE: admin
+
+
+
