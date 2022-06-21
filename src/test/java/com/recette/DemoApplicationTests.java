@@ -21,20 +21,22 @@ class DemoApplicationTests {
 
 	@Autowired
 	private RecetteRepository recetteRepository;
-
+/*
 	@Test
 	@Order(1)
 	@Rollback(value = false)
 	public void saveRecetteTest(){
-		Recette pizza = new Recette();
-				pizza.setName("Pizza");
-				pizza.setIngredients("Farine");
-				pizza.setLarecette("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout");
+		Recette pizza =  Recette.builder()
+		.name("Pizza")
+				.ingredients("Farine")
+		.larecette("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout")
+				build();
 
 		recetteRepository.save(pizza);
 
 		Assertions.assertThat(pizza.getId()).isGreaterThan("0");
 	}
+*/
 
 	@Test
 	@Order(2)
